@@ -30,13 +30,10 @@ async function getTickets() {
 function viewChanged(tickets) {
   const newTicketSet = new Set(tickets.map((ticket) => ticket.id));
   if (!isEqualSet(ticketSet, newTicketSet)) {
-    console.log(`new: ${Array.from(newTicketSet)}`);
-    console.log(`before: ${Array.from(ticketSet)}`);
     ticketSet = new Set();
     for (var ticket of tickets) {
       ticketSet.add(ticket.id);
     }
-    console.log(`after: ${Array.from(ticketSet)}`);
     return true;
   } else {
     return false;
