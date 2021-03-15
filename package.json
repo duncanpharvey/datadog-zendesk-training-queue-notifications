@@ -22,7 +22,9 @@
     "axios": "^0.21.1",
     "crypto": "^1.0.1",
     "express": "^4.17.1",
-    "qs": "^6.9.6"
+    "node-cron": "^3.0.0",
+    "qs": "^6.9.6",
+    "slack-node": "^0.1.8"
   },
   "devDependencies": {
     "dotenv": "^8.2.0"

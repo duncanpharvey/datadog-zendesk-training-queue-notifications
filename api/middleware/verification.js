@@ -8,7 +8,7 @@ function slackSignature(req, res, next) {
 
   let time = Math.floor(new Date().getTime() / 1000);
   if (Math.abs(time - timestamp) > 300) {
-    return res.status(400).send("Ignoring old request");
+    return res.status(400).send({ message: "Ignoring old request" });
   }
 
   let sigBasestring = "v0:" + timestamp + ":" + requestBody;
@@ -21,15 +21,15 @@ function slackSignature(req, res, next) {
       .digest("hex");
 
   if (
+    slackSignature &&
     crypto.timingSafeEqual(
       Buffer.from(mySignature, "utf8"),
       Buffer.from(slackSignature, "utf8")
     )
   ) {
-    console.log("verified");
     next();
   } else {
-    return res.status(400).send("Verification failed");
+    return res.status(400).send({ message: "Verification failed" });
   }
 }
 

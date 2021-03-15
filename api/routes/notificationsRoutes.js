@@ -5,5 +5,5 @@ module.exports = function (app) {
 
   app.route("/stop").post(notifications.stop);
 
-  app.route("/status").get(notifications.status);
+  app.route("/status").post(notifications.status);
 };
