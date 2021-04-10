@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "node -r dotenv/config server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "daemon": "pm2 start server.js"
   },
   "repository": {
     "type": "git",
