@@ -26,8 +26,8 @@ function isStarted() {
 }
 
 function start() {
-  status = 1;
   task.start();
+  status = 1;
 }
 
 function stop() {
